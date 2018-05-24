@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reservation:</strong>
+  <%= @payment.reservation_id %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @payment.person_id %>
+</p>
+
+<p>
+  <strong>Amount paid:</strong>
+  <%= @payment.amount_paid %>
+</p>
+
+<p>
+  <strong>Date paid:</strong>
+  <%= @payment.date_paid %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

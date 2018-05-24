@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building_id: 1
+  type_id: 1
+  person_id: 1
+  room_number: 1
+
+two:
+  building_id: 1
+  type_id: 1
+  person_id: 1
+  room_number: 1

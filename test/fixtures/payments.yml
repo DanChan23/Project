@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reservation_id: 1
+  person_id: 1
+  amount_paid: 9.99
+  date_paid: 2018-05-24
+
+two:
+  reservation_id: 1
+  person_id: 1
+  amount_paid: 9.99
+  date_paid: 2018-05-24

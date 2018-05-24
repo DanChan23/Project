@@ -1,0 +1,37 @@
+<%= form_with(model: unit, local: true) do |form| %>
+  <% if unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
+
+      <ul>
+      <% unit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :building_id %>
+    <%= form.collection_select(:building_id, Building.all, :id, :name, :prompt => 'Select Building') %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Room_Type %>
+    <%= form.collection_select(:type_id, Type.all, :id, :name, :prompt => 'Select Room Type') %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Owner %>
+    <%= form.collection_select(:person_id, Person.all, :id, :name, :prompt => 'Select Owner') %>
+  </div>
+
+  <div class="field">
+    <%= form.label :room_number %>
+    <%= form.number_field :room_number, id: :unit_room_number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

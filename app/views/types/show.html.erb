@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @type.name %>
+</p>
+
+<p>
+  <strong>Number bed:</strong>
+  <%= @type.number_bed %>
+</p>
+
+<p>
+  <strong>Max person:</strong>
+  <%= @type.max_person %>
+</p>
+
+<p>
+  <strong>Food service:</strong>
+  <%= @type.food_service %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @type.price %>
+</p>
+
+<%= link_to 'Edit', edit_type_path(@type) %> |
+<%= link_to 'Back', types_path %>
