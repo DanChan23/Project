@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /people
   # GET /people.json
   def index
@@ -25,10 +25,12 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
+    session[:id] = @person.id
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to @person, notice: 'Person was successfully created.' }
+        session[:user_id] = @person.id
+        format.html { redirect_to "http://localhost:3000/reservations/new/#{session[:user_id]}"}
         format.json { render :show, status: :created, location: @person }
       else
         format.html { render :new }

@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize
   # GET /reservations
   # GET /reservations.json
   def index
@@ -10,6 +10,9 @@ class ReservationsController < ApplicationController
   # GET /reservations/1
   # GET /reservations/1.json
   def show
+  end
+
+  def customer_show
   end
 
   # GET /reservations/new
@@ -28,6 +31,9 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
+        initial = Unit.where("id = ?", @reservation.unit_id).pluck(:type_id).first
+        @reservation.total_amount = Type.where("id = ?", initial).pluck(:price).first
+        @reservation.update(reservation_params)
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else

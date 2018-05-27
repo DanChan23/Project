@@ -1,4 +1,5 @@
 <%= form_with(model: account, local: true) do |form| %>
+  <div role = "form">
   <% if account.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
@@ -11,22 +12,28 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :username %>
     <%= form.text_field :username, id: :account_username %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :password %>
     <%= form.password_field :password, id: :account_password %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :email_add %>
     <%= form.text_field :email_add, id: :account_email_add %>
   </div>
 
+  <div class="form-group">
+    <% form.label :user_level %>
+    <%= form.hidden_field :user_level, id: :account_user_level, :value => "user" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
+  </div>
   </div>
 <% end %>

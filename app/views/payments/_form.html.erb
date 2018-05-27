@@ -11,14 +11,20 @@
     </div>
   <% end %>
 
+  <script type="text/javascript">
+    function change_persona_id() {
+      document.getElementById("person_id").value = "2";
+    }
+  </script>
+
   <div class="field">
     <%= form.label :reservation_id %>
-    <%= form.number_field :reservation_id, id: :payment_reservation_id %>
+    <%= form.collection_select(:reservation_id, Reservation.all, :id, :id, :prompt => 'Payment for what reservation?', :onchange => "change_persona_id();") %>
   </div>
 
   <div class="field">
     <%= form.label :person_id %>
-    <%= form.number_field :person_id, id: :payment_person_id %>
+    <%= form.text_field :person_id, id: :payment_person_id %>
   </div>
 
   <div class="field">

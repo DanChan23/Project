@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :Room_Number %>
     <%= form.collection_select(:unit_id, Unit.all, :id, :room_number, :prompt => 'Select Room Number') %>
   </div>
 
-  <div class="field">
-    <%= form.label :person_id %>
-    <%= form.number_field :person_id, id: :reservation_person_id, :readonly => true %>
+  <div class="form-group">
+    <% form.label :person_id %>
+    <%= form.hidden_field :person_id, id: :reservation_person_id, :readonly => true, :value => session[:user_id] %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :start_date %>
     <%= form.date_select :start_date, id: :reservation_start_date %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :end_date %>
     <%= form.date_select :end_date, id: :reservation_end_date %>
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status, id: :reservation_status %>
+  <div class="form-group">
+    <% form.label :status %>
+    <%= form.hidden_field :status, id: :reservation_status, :value => "reserved" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :total_amount %>
-    <%= form.text_field :total_amount, id: :reservation_total_amount %>
+    <%= form.text_field :total_amount, id: :reservation_total_amount, :value => Type.where("id = ?", :unit_id).pluck(:price).first %>
   </div>
 
-  <div class="actions">
+  <div class="form-group">
     <%= form.submit %>
   </div>
 <% end %>

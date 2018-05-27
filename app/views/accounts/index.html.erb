@@ -7,6 +7,7 @@
     <tr>
       <th>Username</th>
       <th>Email add</th>
+      <th>User Level</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,9 +17,12 @@
       <tr>
         <td><%= account.username %></td>
         <td><%= account.email_add %></td>
-        <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= account.user_level %></td>
+        <% if session[:user_level] == 'admin' %>
+          <td><%= link_to 'Show', account %></td>
+          <td><%= link_to 'Edit', edit_account_path(account) %></td>
+          <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %> 
       </tr>
     <% end %>
   </tbody>

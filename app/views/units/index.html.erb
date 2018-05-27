@@ -9,6 +9,7 @@
       <th>Type</th>
       <th>Person</th>
       <th>Room number</th>
+      <th>Price</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= Type.where("id = ?", unit.type_id).pluck(:name).first %></td>
         <td><%= Person.where("id = ?", unit.person_id).pluck(:name).first %></td>
         <td><%= unit.room_number %></td>
+        <td><%= Type.where("id = ?", unit.type_id).pluck(:price).first %></td>
         <td><%= link_to 'Show', unit %></td>
         <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
         <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>

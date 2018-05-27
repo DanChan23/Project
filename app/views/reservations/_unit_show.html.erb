@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Units</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      
+      <th>Type</th>
+      
+      <th>Room number</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @units = Unit.all %>
+    <% @units.each do |unit| %>
+      <tr>
+        
+        <td><%= Type.where("id = ?", unit.type_id).pluck(:name).first %></td>
+        
+        <td><%= unit.room_number %></td>
+        <td><%= Type.where("id = ?", unit.type_id).pluck(:price).first %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /accounts
   # GET /accounts.json
   def index
@@ -28,6 +28,7 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.save
+        session[:user_level] = @account.user_level
         format.html { redirect_to "http://localhost:3000/people/new/#{@account.id}", notice: 'Account was successfully created.' }
         format.json { render :show, status: :created, location: @account }
         #redirect_to 
@@ -70,6 +71,6 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:username, :password, :email_add)
+      params.require(:account).permit(:username, :password, :email_add, :user_level)
     end
 end
