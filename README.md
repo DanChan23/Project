@@ -11,9 +11,13 @@ Reservation System on Rails
 * Deployment instructions
 
 	-> Download/Pull from the repository
+	
 	-> type and execute 'bundle install' without the ''
+	
 	-> type and execute 'rake db:migrate' without the ''
+	
 	-> type and execute 'rails s'
+	
 	-> then open mozilla/safari browser and enter 'localhost:3000/login'
 
 # Project => Reservation System
