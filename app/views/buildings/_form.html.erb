@@ -11,18 +11,26 @@
     </div>
   <% end %>
 
+  <% @get_id = Person.where("id = ?", session[:user_id]).pluck(:id).first %>
+  <% @user_level = Account.where("id = ?", @get_id).pluck(:user_level).first %>
+  <% if @user_level != 'admin' %>
+    <script type="text/javascript">
+      window.location.href="http://localhost:3000/reservations"
+    </script>
+  <% end %>
+
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, :class => "control-label col-sm-1" %>
     <%= form.text_field :name, id: :building_name %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
+    <%= form.label :address, :class => "control-label col-sm-1" %>
     <%= form.text_field :address, id: :building_address %>
   </div>
 
   <div class="field">
-    <%= form.label :owner %>
+    <%= form.label :owner, :class => "control-label col-sm-1" %>
     <%= form.text_field :owner, id: :building_owner %>
   </div>
 

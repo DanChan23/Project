@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
 	get 'people/new/:id' => 'people#new'
   get 'reservations/new/:id' => 'reservations#new'
-  post 'logins/find' => 'logins#find'
+  #post 'logins/find' => 'logins#find'
 
   get 'signup', to: 'accounts#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   #resources :users
   resources :sessions
 
-  resources :logins
+  #resources :logins
   resources :payments
   resources :reservations
   resources :accounts

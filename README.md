@@ -1,25 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Reservation System on Rails
 
-Things you may want to cover:
+* Ruby version => ruby 2.5.0p0
 
-* Ruby version
+* Rails version => 5.1.6
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+* Uses the default SQLite of Rails
 
 * Deployment instructions
 
-* ...
-# Project
+	-> Download/Pull from the repository
+	-> type and execute 'bundle install' without the ''
+	-> type and execute 'rake db:migrate' without the ''
+	-> type and execute 'rails s'
+	-> then open mozilla/safari browser and enter 'localhost:3000/login'
+
+# Project => Reservation System
